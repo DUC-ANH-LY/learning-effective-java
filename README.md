@@ -94,3 +94,29 @@
 - Item 23: hierachy design
 - Item 24: prefer static inner class for easy constructor 
 - Item 25: nothing
+- Item 26: genrics 
+- Item 34: enum and annotations
+- Item 42: Lambda over anonymous function
+  - ![img_16.png](img_16.png)
+- Item 43: prefer method ref than lambda ( lambda use for conditional, for get just use ref) 
+  - [ex](src/effectivejava/chapter7/item43)
+- Item 44: Favor use standard functional interface
+- Item 45: 
+  - ✔ Data transformations
+    ✔ Filtering
+    ✔ Mapping
+    ✔ Aggregations
+    ✔ Pipeline-style processing
+  - ```java
+        List<String> result = list.stream()
+        .filter(s -> s.startsWith("A"))
+        .map(String::toUpperCase)
+        .toList();
+     ```
+  - ![img_17.png](img_17.png)
+- Item 46: 
+- Item 48: Paralel stream 
+  - ![img_18.png](img_18.png)
+- Item 80: Prefer executors, tasks, and streams to threads
+- Item 81: 
+  - ![img_19.png](img_19.png)

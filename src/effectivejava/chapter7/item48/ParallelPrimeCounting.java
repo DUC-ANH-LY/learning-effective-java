@@ -13,7 +13,9 @@ public class ParallelPrimeCounting {
                 .count();
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
+
+        Thread.sleep(2000);
         System.out.println(pi(10_000_000));
     }
 }

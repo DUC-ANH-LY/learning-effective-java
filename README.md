@@ -54,4 +54,43 @@
   - ![img_12.png](img_12.png)
   - ![img_13.png](img_13.png)
 - Item 14: Implement Comparable for sort function
-- 
+- Item 15: Minimize the accessibility of classes and members
+  - encapsulation priciple, if public, out side can access and edit easily without validation and logic rule (debug hard and not effective management )
+  - just move to private and define `get/set` function with constraint logical validation
+  - ![img_14.png](img_14.png)
+- Item 16: using public accessor (get/set) -- same with item 15
+- Item 17: Minimize mutability ( prefer immutable by default )
+  - Immutable objects are easier to:
+    - understand
+    - use
+    - share safely
+    - cache
+    - reuse
+    - test
+    - maintain
+    - They are also naturally:
+      - thread-safe
+      - failure-atomic
+      - secure against accidental modification
+    - Examples in Java:
+      - String
+      - Integer
+      - BigInteger
+      - LocalDate
+      - UUID
+- Item 18: 
+  - ![img_15.png](img_15.png)
+- Item 19: view example for better; call Parent func in parent constructor is already inheritanced then attribute still null on child because it not construct yet -> null value
+- Item 20: prefer interface to abstract class 
+    - Interface = contract 
+      Abstract class = base implementation
+    - Personally I think the main difference of this is share state / instance state, abstract can have attribute that store state of an object interface not, (for base implementation `default` method in interface solved)
+    - Interface make more expendable ( if change method in interface it may break all implemtation but default method maybe solved it ), testable and flexible
+- Item 21:
+  - Design interfaces carefully before publishing
+  - Expect evolution but minimize need for changes
+  - Prefer adding new interfaces over modifying old ones
+- Item 22: Use interface just for define type 
+- Item 23: hierachy design
+- Item 24: prefer static inner class for easy constructor 
+- Item 25: nothing

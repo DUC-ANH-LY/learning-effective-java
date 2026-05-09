@@ -12,7 +12,6 @@ public class GarbageLog {
             throws Exception {
 
         Runtime runtime = Runtime.getRuntime();
-
         int counter = 0;
 
         while (true) {

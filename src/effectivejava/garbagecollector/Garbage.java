@@ -20,7 +20,6 @@ public class Garbage {
         printMemory(runtime);
 
         Person p1 = new Person("Alice");
-
         System.out.println("After object creation:");
         printMemory(runtime);
 

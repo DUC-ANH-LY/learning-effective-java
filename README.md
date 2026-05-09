@@ -42,4 +42,16 @@
   - Enterprise gc is too hard to read and learn with fast demoable
   - Read here for gc from scratch [may be easier approach](https://buildx.substack.com/p/lets-build-a-garbage-collector-gc)
 - Item 8: not too considered
+- Item 9: Prefer try with resource to try finally
+- Item 10: Prefer overide equals 
+  - default equals inherited from Object class with == (reference compare) internally
+  - ![img_11.png](img_11.png)
+- Item 11: Prefer overide hashCode, on hash collection, if not overide same value object can be have different hashCode as default Object class then overide it with actual object value with prime number for minized collision 
+  - [ex](src/effectivejava/chapter3/item11/Test.java)
+- Item 12: Prefer overide toString (easy)
+- Item 13: Prefer clone via constructor or factory method
+  - clone method just copy reference, not actual create the new one as expected, some mutable case is very careful
+  - ![img_12.png](img_12.png)
+  - ![img_13.png](img_13.png)
+- Item 14: Implement Comparable for sort function
 - 

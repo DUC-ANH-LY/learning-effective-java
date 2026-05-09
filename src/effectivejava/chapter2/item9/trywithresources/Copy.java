@@ -7,7 +7,7 @@ public class Copy {
 
     // try-with-resources on multiple resources - short and sweet (Page 35)
     static void copy(String src, String dst) throws IOException {
-        try (InputStream   in = new FileInputStream(src);
+        try (InputStream   in = new FileInputStream(src); // try with resource auto close stream without unexpected behaivior
              OutputStream out = new FileOutputStream(dst)) {
             byte[] buf = new byte[BUFFER_SIZE];
             int n;

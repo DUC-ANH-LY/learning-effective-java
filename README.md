@@ -26,5 +26,20 @@
 - Item 5: prefer depenedeny injection (spring container, bean)
 - Item 6: Avoid creating unnessary object 
   - String heap 
-    - (ex)[src/effectivejava/chapter2/item6/Test.java]
+    - [ex](src/effectivejava/chapter2/item6/Test.java)
     - ![img_3.png](img_3.png)
+    - ![img_4.png](img_4.png) 
+    - [ex](src/effectivejava/chapter2/item6/Sum.java)
+- Item 7: Eliminate obsolete object reference 
+- Garbage Collector
+  - set up garbage log 
+  - ![img_5.png](img_5.png)
+  - ![img_7.png](img_7.png)
+  - ![img_8.png](img_8.png)
+  - divide to multi region for perfomane, gc not to scan entire 
+  - ![img_9.png](img_9.png)
+  - ![img_10.png](img_10.png)
+  - Enterprise gc is too hard to read and learn with fast demoable
+  - Read here for gc from scratch [may be easier approach](https://buildx.substack.com/p/lets-build-a-garbage-collector-gc)
+- Item 8: not too considered
+- 

@@ -23,20 +23,27 @@ public class RomanNumerals {
         return ROMAN.matcher(s).matches();
     }
 
-    public static void main(String[] args) {
-        int numSets = Integer.parseInt(args[0]);
-        int numReps = Integer.parseInt(args[1]);
+    public static void main(String[] args) throws InterruptedException {
+        int numSets = 100;
+        int numReps = 100;
         boolean b = false;
+        Thread.sleep(10000);
 
+        long start = System.nanoTime();
         for (int i = 0; i < numSets; i++) {
-            long start = System.nanoTime();
             for (int j = 0; j < numReps; j++) {
-                b ^= isRomanNumeralSlow("MCMLXXVI");  // Change Slow to Fast to see performance difference
+//                29.49 mb, 50ms
+//                b ^= isRomanNumeralSlow("MCMLXXVI");  // Change Slow to Fast to see performance difference
+//                profiler: 10ms  3.1mb
+                b ^= isRomanNumeralFast("MCMLXXVI");  // Change Slow to Fast to see performance difference
             }
-            long end = System.nanoTime();
-            System.out.println(((end - start) / (1_000. * numReps)) + " μs.");
         }
+        long end = System.nanoTime();
+        System.out.println(((end - start) / (1_000. * numReps)) + " μs.");
 
+
+
+        Thread.sleep(100000);
         // Prevents VM from optimizing away everything.
         if (!b)
             System.out.println();

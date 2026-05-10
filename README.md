@@ -119,4 +119,4 @@
   - ![img_18.png](img_18.png)
 - Item 80: Prefer executors, tasks, and streams to threads
 - Item 81: 
-  - ![img_19.png](img_19.png)
+  - 

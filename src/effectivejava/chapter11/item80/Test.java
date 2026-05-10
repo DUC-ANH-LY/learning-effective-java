@@ -5,6 +5,7 @@ import java.util.concurrent.*;
 public class Test {
 
     public static void main(String[] args) throws Exception {
+//        Thread.sleep(5000);
 
         // =====================================================
         // ❌ 1. BAD: Raw Thread creation
@@ -67,15 +68,19 @@ public class Test {
                         .thenApply(result -> result + 10);
 
         System.out.println("✔ CompletableFuture result: " + cf.get());
+        System.out.println("hi");
+
     }
 
     // Simulated workload
     static int doWork(int x) {
         try {
-            Thread.sleep(500); // simulate heavy work
+            Thread.sleep(2000); // simulate heavy work
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
         return x * 10;
     }
+
+
 }

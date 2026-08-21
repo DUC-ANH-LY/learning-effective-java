@@ -119,4 +119,188 @@
   - ![img_18.png](img_18.png)
 - Item 80: Prefer executors, tasks, and streams to threads
 - Item 81: 
-  - 
+
+
+# Java Interview Question
+
+## OOP:
+
+- four type:
+  - Abstraction: 
+    - Interface and Abstract Class:
+      - Interface: default public [static] abstract method (no body), java 8 default method, public static final attribute always static (Interface own the state), A class can implements multi intefaces 
+      - Abstract class: can have both abstract method and normal method (have body), attribute can be static for normal (Instane own the state), A class just extends from only one class 
+      ## Q1 Why a class just extends by a class, but implements multi interface
+      ## A1
+        ```java
+        class A {
+          public void a() {
+           System.out.print("test")
+          }
+        }
+        class B{
+          public void a() {
+            System.out.print("test1")
+          }
+        }
+        class C extends A, B {
+            int doStuff() { 
+          return super.a(); // Which superclass method is called?
+        }
+        ```
+      ## Q2 What the difference between Interface and Abstract Class 
+      ## A1
+      - attribute: interface own the state (Interface), instance own the state (Abstract Class)
+      - method: interface only has abstract method, Abstract Class has both 
+  - Inheritance 
+   ```java
+    class A {
+       public void a() {
+        
+       }
+    }
+    class B extends A {
+
+    }
+    b = new B() 
+    b.a() <-- inheritance
+   ```
+  - Polimorphism 
+    - override:
+      - override the function that `inheritanc`e or `implement from interface`
+      ```java
+      --- implement interface
+      interface Animal {
+          void makeSound();
+      }
+
+      class Dog implements Animal {
+
+          @Override
+          public void makeSound() {
+              System.out.println("Woof!");
+          }
+      }
+
+      public class Main {
+          public static void main(String[] args) {
+              Dog dog = new Dog();
+              dog.makeSound();
+          }
+      }
+
+
+      --- inheritance
+      class Animal {
+        void makeSound() {
+            System.out.println("Animal sound");
+            }
+        }
+
+      class Dog extends Animal {
+            @Override
+            void makeSound() {
+                System.out.println("Woof!");
+            }
+        }
+
+      public class Main {
+            public static void main(String[] args) {
+                Dog dog = new Dog();
+                dog.makeSound();
+            }
+        }
+      ```
+    - overload: 
+      - It's the sets of function that have the same name but `different number of parameters` and `data types`
+      ```java
+      class Calculator {
+
+          int add(int a, int b) {
+              return a + b;
+          }
+
+          // Different numbers of parameter 
+          int add(int a, int b, int c) {
+              return a + b + c;
+          }
+
+          // Different parameter data types
+          double add(double a, double b) {
+              return a + b;
+          }
+      }
+      ```
+  - Encapsulation:
+    - for hiding / protecting the privacy of implementation and attribute we just use `public set/get function` to get the `private thing` 
+
+
+## Java Memory Model 
+  - stack: store params of function, function call, return value, primitive data type (int, char, boolean, double, long,..) 
+  - heap: store the object that required `dynamic address allocation` (through `new()`)
+  ### Q1: Whether java is `pass-by-value` or `pass-by-reference` 
+  ### Q2: always pass-by-value
+  ```java
+  public class Main {
+
+    static void change(int x) {
+        x = 100;
+    }
+
+    public static void main(String[] args) {
+        int a = 10;
+
+        change(a);
+
+        System.out.println(a); // 10
+    }
+  }
+
+    class Person {
+      String name;
+  }
+
+  public class Main {
+
+      static void changeName(Person p) {
+          p = new Person(); <-- create new object heap | seem like `immutable` -> race condition -> multi thread
+          p.name = "Bob";
+          System.out.println(System.identityHashCode(p));
+      }
+
+      public static void main(String[] args) {
+          Person person = new Person();
+          person.name = "Alice";
+          System.out.println(System.identityHashCode(person));
+          changeName(person);
+
+          System.out.println(person.name); // Bob 
+      }
+  }
+  ```
+
+## String
+  ### StringBuffer, StringPool, StringBuilder (already talked)
+
+## Concurency Java
+  - race condition: multi-thread access and edit the same resource in the same time  
+    - synchronized, reetrantlock, atomic,...
+  - deadlock: thread A lock resource in thread B, thread B lock resource in thread A  -> infinitive lock 
+    - lock timout 
+    - deadlock detection 
+
+## Collections
+### HashMap, HashSet 
+- hashmap, hashset implementation (hash function, element value % (bucket size)), time complexity O(1)
+- hashmap collision (duplicate key hash) -> append bucket to a linked list
+- hashcode, equals
+
+# Spring
+## AOP 
+- Joincut
+## Anotation Transaction 
+- reflect class, proxy
+## Dependencie Injection 
+## Bean LifeCycle 
+## Spring Security lifecycle
+ 

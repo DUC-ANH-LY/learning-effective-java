@@ -46,7 +46,7 @@ public class UsingExplicitReentrantLocks {
 	 */
 	public void lockMyHearthWithTiming() throws InterruptedException {
 		// Tries to acquire lock in the specified timeout
-		if (!reentrantLock.tryLock(1l, TimeUnit.SECONDS)) {
+		if (!reentrantLock.tryLock(9l, TimeUnit.SECONDS)) {
 			System.err.println("Failed to acquire the lock - it's already held.");
 		} else {
 			try {
@@ -61,10 +61,10 @@ public class UsingExplicitReentrantLocks {
 	public static void main(String[] args) {
 		var executor = Executors.newCachedThreadPool();
 		var self = new UsingExplicitReentrantLocks();
-		for (int i = 0; i < 10; i++) {
-			executor.execute(() -> self.lockMyHearth());
-		}
-
+//		for (int i = 0; i < 10; i++) {
+//			executor.execute(() -> self.lockMyHearth());
+//		}
+//
 		for (int i = 0; i < 40; i++) {
 			executor.execute(() -> {
 				try {

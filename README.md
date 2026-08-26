@@ -296,6 +296,7 @@
 - hashcode, equals
 
 # Spring
+## DTO 
 ## AOP 
 - Joincut
 ## Anotation Transaction 
@@ -303,4 +304,20 @@
 ## Dependencie Injection 
 ## Bean LifeCycle 
 ## Spring Security lifecycle
- 
+## Hibernate | JPA 
+- caching level (https://www.geeksforgeeks.org/java/hibernate-caching/, https://technicaldeepdive.hashnode.dev/bai-6-caching-trong-spring-data-jpa)
+- save and save-flush (flush data from first level cache to second level cache for multi session can see the real data)
+
+# Redis 
+- Architecture: 
+  - redis sentinel (replica only) and redis cluster ( support sharding and replica, limit 16,384 hash slots) 
+  - on spring just spring.sentinel=redis_host then done, otherwise spring.cluster=host1:port,host2:port,host3:port 
+
+# SOLID 
+- S — Single Responsibility Principle: A class should have only one reason to change, meaning it should do just one job.
+- O — Open/Closed Principle: Code should be open for adding new features, but closed for changing old code.
+- L — Liskov Substitution Principle: Child classes must work properly where their parent classes are expected.
+- I — Interface Segregation Principle: Make small, specific interfaces instead of one big, general interface.
+- D — Dependency Inversion Principle: Depend on abstract ideas and interfaces, not on concrete details. 
+
+# JWT 

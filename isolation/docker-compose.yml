@@ -1,0 +1,24 @@
+services:
+  mysql:
+    image: mysql:latest
+    container_name: mysql_isolation_lab
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: isolation_lab
+      MYSQL_USER: lab_user
+      MYSQL_PASSWORD: lab_password
+    ports:
+      - "3306:3306"
+    volumes:
+      # Data persistence volume
+      - mysql_data:/var/lib/mysql
+      # Auto-executed initialization SQL scripts on first container startup
+      - ./init:/docker-entrypoint-initdb.d:ro
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+
+volumes:
+  mysql_data:
+    driver: local

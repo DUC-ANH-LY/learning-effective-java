@@ -116,7 +116,10 @@
   - ![img_17.png](img_17.png)
 - Item 46: 
 - Item 48: Paralel stream 
+  - core (process) -> process and thread, cost of context swicth of process greater than thread (), process isolate memory resource, thread share memory, thread is child of a process, process can have many thread 
   - ![img_18.png](img_18.png)
+  - ![img_19.png](img_19.png)
+  - https://javarevisited.blogspot.com/2020/08/java-8-parallelstream-example.html#
 - Item 80: Prefer executors, tasks, and streams to threads
 - Item 81: 
 
@@ -281,10 +284,11 @@
 
 ## String
   ### StringBuffer, StringPool, StringBuilder (already talked)
+  [ex](./src/effectivejava/StringBuildervsStringBuffer/)
 
 ## Concurency Java
   - race condition: multi-thread access and edit the same resource in the same time  
-    - synchronized, reetrantlock, atomic,...
+  - synchronized, reetrantlock, atomic,...
   - deadlock: thread A lock resource in thread B, thread B lock resource in thread A  -> infinitive lock 
     - lock timout 
     - deadlock detection 
@@ -296,28 +300,32 @@
 - hashcode, equals
 
 # Spring
-## DTO 
 ## AOP 
 - Joincut
 ## Anotation Transaction 
-- reflect class, proxy
+- reflect class, proxy, rollback when throw the runtimeexception 
+`Unchecked Exceptions`: Any subclass of `RuntimeException` (e.g., NullPointerException, IllegalArgumentException) triggers a rollback.
+- Errors: Severe system errors (e.g., `OutOfMemoryError`) trigger a rollback.
+- `Checked Exceptions`: Exceptions like `IOException` or `SQLException` do not trigger a rollback by default. Spring assumes checked exceptions are handled programmatically.
+- Propgration (new_requrie, )(rollbackFor = Exception.class)
 ## Dependencie Injection 
 ## Bean LifeCycle 
 ## Spring Security lifecycle
-## Hibernate | JPA 
-- caching level (https://www.geeksforgeeks.org/java/hibernate-caching/, https://technicaldeepdive.hashnode.dev/bai-6-caching-trong-spring-data-jpa)
-- save and save-flush (flush data from first level cache to second level cache for multi session can see the real data)
+## Permistic Lock and Optimistic Lock
+[ex1](./src/effectivejava/PermisticLock/)
+[ex2](./src/effectivejava/OptimisticLock/)
+https://freedium-mirror.cfd/https://itnext.io/jpa-optimistic-vs-pessimistic-locking-in-practice-f6dd100eddb2
 
-# Redis 
-- Architecture: 
-  - redis sentinel (replica only) and redis cluster ( support sharding and replica, limit 16,384 hash slots) 
-  - on spring just spring.sentinel=redis_host then done, otherwise spring.cluster=host1:port,host2:port,host3:port 
 
-# SOLID 
-- S — Single Responsibility Principle: A class should have only one reason to change, meaning it should do just one job.
-- O — Open/Closed Principle: Code should be open for adding new features, but closed for changing old code.
-- L — Liskov Substitution Principle: Child classes must work properly where their parent classes are expected.
-- I — Interface Segregation Principle: Make small, specific interfaces instead of one big, general interface.
-- D — Dependency Inversion Principle: Depend on abstract ideas and interfaces, not on concrete details. 
+# Database 
+## Isolaton Level 
+- read uncommited
+- read commited
+- repeatable read
+- serialzable
+## Partition  
+## Table space 
+## Indexing
+## Sharding 
 
-# JWT 
+ 

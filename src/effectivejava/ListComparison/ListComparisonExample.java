@@ -9,7 +9,9 @@ public class ListComparisonExample {
         
         // =========================================================
         // 1. ArrayList
-        // fixed array with x1.5 capacity (perf growth)
+//      init Object[] has capacity = 10
+//      perf_grow = old_capacity + max(min_capacity - old_capacity, old_capacity * 0.5)
+//        -> new_capacity = perf_gow
 
         // oldCapacity = 10
         // minCapacity = 15
@@ -18,9 +20,6 @@ public class ListComparisonExample {
         // preferredGrowth = 5
 
         // newCapacity ≈ 15
-
-
-
 
         // oldCapacity = 10
         // minCapacity = 12
@@ -31,6 +30,14 @@ public class ListComparisonExample {
         List<String> arrayList = new ArrayList<>();
         arrayList.add("Apple");
         arrayList.add("Banana");
+        arrayList.add("Ch");
+        arrayList.add("Ch");
+        arrayList.add("Ch");
+        arrayList.add("Ch");
+        arrayList.add("Ch");
+        arrayList.add("Ch");
+        arrayList.add("Ch");
+        arrayList.add("Ch");
         arrayList.add("Ch");
         
         // Instant access because it knows exactly where index 1 is in memory

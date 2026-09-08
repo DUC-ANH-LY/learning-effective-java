@@ -328,4 +328,75 @@ https://freedium-mirror.cfd/https://itnext.io/jpa-optimistic-vs-pessimistic-lock
 ## Indexing
 ## Sharding 
 
- 
+
+
+# Design Pattern 
+## SOLID 
+https://gpcoder.com/4200-cac-nguyen-ly-thiet-ke-huong-doi-tuong/
+- S: Single Responsibility: one class, method just have only one purpose 
+      ```python 
+        # print 
+        class Book:
+            def __init__(self,name,publish_date, publisher): 
+            def getName() 
+            def setName() 
+            def printBook(): 
+
+        class Newspaper:
+            def __init__(self,name,publish_date, newsroom): 
+            def printNewspaper(): 
+
+        
+        
+        # convert print task for commonly use -- apply single responsibility 
+        interface Printerable
+
+        class Book implemnts Printerable:
+            def __init__(self,name,publish_date, publisher): 
+            def getName() 
+            def setName() 
+
+        class Newspaper implemnts Printerable:
+            def __init__(self,name,publish_date, newsroom): 
+
+
+        class Printer: 
+            def print(Printerable p):
+              print(p.name, p.publish_date)
+              if p == instanceof Book: 
+                print(publisher)
+              if p == instanceof Newspaper:
+                print(newsroom)
+      ```
+- O: Open-close Principle: we're trying to avoid edit the old class
+    ```python
+      // add validate function without changing Book, Newspaper
+      interface Validatable
+
+      class Validator: 
+        def validate(Validatable p):
+    ```
+- L: Liskov Principle: child class not cause parent class change 
+
+    ```python
+      class ChildBook(Book):
+        def __init(type):
+        def getName():
+            throw Exception // XXXXXXX change programming behavior correctness 
+    ```
+- I: interface: we trying to extract the large interface to many small one
+```python 
+interface PrinterValitable
+class ChildBook:
+```
+- D: Dependency Injection: Dynamically resolving object (through inteface or extension, contructor, field - attribute) 
+```python
+    class A:
+    class B: 
+    class C:
+      def __init__(self, A a, B b):
+        this.a = a
+        this.b = b
+      def setA(A a): 
+        this.a = a
+```

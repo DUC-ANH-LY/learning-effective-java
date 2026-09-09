@@ -292,12 +292,35 @@
   - deadlock: thread A lock resource in thread B, thread B lock resource in thread A  -> infinitive lock 
     - lock timout 
     - deadlock detection 
+  - async function inside of sync function
+  ```java
+    @Service
+    public class MyService {
+
+        // Normal function
+        public void regularMethod() {
+            // Bypasses the proxy! Runs SYNCHRONOUSLY on the same thread.
+            asyncMethod(); 
+        }
+
+        @Async
+        public void asyncMethod() {
+            // Logic here
+        }
+    }
+  ```
 
 ## Collections
 ### HashMap, HashSet 
 - hashmap, hashset implementation (hash function, element value % (bucket size)), time complexity O(1)
 - hashmap collision (duplicate key hash) -> append bucket to a linked list
 - hashcode, equals
+
+
+## Java 21+ 
+- Basically `Thread` and `Runnable` will running normal thread - platform thread related `OS thread` (for linux system 1MB) 
+- for `Virtual Thread` , a `platform thread` can have many `VT` that optimized memory usage and (some of `VT` performance test  run faster - I dont know but more `lightweight`)
+
 
 # Spring
 ## AOP 
@@ -400,3 +423,5 @@ class ChildBook:
       def setA(A a): 
         this.a = a
 ```
+
+
